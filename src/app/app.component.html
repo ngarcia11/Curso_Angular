@@ -1,4 +1,33 @@
-   <ul>
-    <app-user *ngFor="let user of users" [nameUser]="user"></app-user>
+<p>Nombre: {{name}}</p>
+<p>Edad: {{age}}</p>
+<p>Calle: {{address.street}}</p>
+<p>Ciudad: {{address.city}}</p>
+<ul>
+    <li *ngFor= 'let hobby of hobbies'>
+        {{hobby}}
+    </li>
+   
 </ul>
+
+<form (submit)="addUser(newUser)">
+    <input type="text" #newUser>
+    <button>Enviar</button>
+</form>
+
+<ul>
+    <li *ngFor= 'let user of users'>
+     {{user}}   <button (click)="delete(user)">
+            X
+        </button>
+    </li>
+</ul>
+
+<div>
+    <form>
+        <input type="text" name="nombre" [(ngModel)]="nombre">
+        <input type="text" name="edad" [(ngModel)]="edad">
+    </form>
+    Nombre: {{nombre}} <br>
+    Edad: {{edad}}
+</div>
 
