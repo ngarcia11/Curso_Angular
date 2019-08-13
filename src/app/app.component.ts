@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { DataService } from './data.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,6 +19,7 @@ city: string ;
 };
 hobbies: string[];
 
+/*
 constructor(){
   this.name = 'Norlan Garcia';
   this.age = 21;
@@ -28,7 +29,7 @@ constructor(){
  };
 this.hobbies = ['Nadar', 'Leer', 'Programar'];
 }
-
+*/
 delete(user) {
 for(let i=0; i < this.users.length; i ++){
   if (user == this.users[i]){
@@ -43,4 +44,10 @@ newUser.value = "";
 newUser.focus;
 return false;
 }
+constructor(private dataservice: DataService){
+ this.dataservice.getdata();
+}
+
+posts = [];
+
 }
