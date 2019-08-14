@@ -45,7 +45,9 @@ newUser.focus;
 return false;
 }
 constructor(private dataservice: DataService){
- this.dataservice.getdata();
+ this.dataservice.getdata().subscribe(data => {
+    this.posts = data;
+ });
 }
 
 posts = [];
